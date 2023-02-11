@@ -194,8 +194,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     // style: Theme.of(context).textTheme.headlineMedium,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Nhập email',
-                      labelText: 'Địa chỉ email',
+                      hintText: 'Địa chỉ email',
+                      labelText: 'Nhập địa chỉ email',
                     ),
                   )),
                   const SizedBox(height: 8),
