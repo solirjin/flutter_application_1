@@ -154,6 +154,9 @@ class _MyHomePageState extends State<MyHomePage> {
                             label: const Text("Google"),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Palette.xdSecondaryColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                             ),
                           ),
                           ElevatedButton.icon(
@@ -162,32 +165,56 @@ class _MyHomePageState extends State<MyHomePage> {
                             label: const Text("Facebook"),
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Palette.xdSecondaryColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
                             ),
+                          ),
+                          Text(
+                            '$_counter',
+                            style: Theme.of(context).textTheme.headlineMedium,
                           ),
                         ],
                       ),
                     ),
                   ],
                 )),
-            const SizedBox(height: 10),
+            const SizedBox(height: 4),
             Container(
               padding: const EdgeInsets.all(12),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(8)),
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: const Text(
-                'You have clicked the button this many times:',
-                style: TextStyle(backgroundColor: Palette.xdPrimaryColor),
-              ),
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                '$_counter',
-                style: Theme.of(context).textTheme.headlineMedium,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  const Flexible(
+                      child: TextField(
+                    // style: Theme.of(context).textTheme.headlineMedium,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Nhập email',
+                      labelText: 'Địa chỉ email',
+                    ),
+                  )),
+                  const SizedBox(height: 8),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: (_incrementCounter),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Palette.xdPrimaryColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        'Tiếp tục đăng nhập',
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
