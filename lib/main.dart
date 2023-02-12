@@ -73,8 +73,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           DuyAnh(),
-          Hai(),
-          Toan(),
+          // Hai(),
+          // Toan(),
         ],
       ),
       // floatingActionButton: FloatingActionButton(
@@ -92,7 +92,10 @@ class DuyAnh extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('DuyAnh here'),
+        Text('DuyAnh heresssss'),
+        Text('DuyAnh heresssss'),
+        Text('DuyAnh heresssss'),
+        Text('DuyAnh heresssss'),
       ],
     );
   }
