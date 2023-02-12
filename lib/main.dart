@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MyApp());
+}
+
 class Palette {
   static const MaterialColor xdPrimaryColor = MaterialColor(
     0xFF2F6858, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch.
@@ -17,10 +21,6 @@ class Palette {
     },
   );
   static const Color xdSecondaryColor = Color(0xFF54615C);
-}
-
-void main() {
-  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
