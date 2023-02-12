@@ -70,13 +70,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Palette.xdPrimaryColor[50],
-      body: Column(
-        children: [
-          DuyAnh(),
-          // Hai(),
-          // Toan(),
-        ],
-      ),
+      // body: Wrap(children: [
+      //   DuyAnh(),
+      //   Hai(),
+      //   Toan(),
+      // ]),
+      body: Toan(),
+      // body: Hai(),
+      // body: DuyAnh(),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   backgroundColor: Palette.xdPrimaryColor,
@@ -135,9 +136,9 @@ class _ToanState extends State<Toan> {
       decoration: BoxDecoration(
         color: Palette.xdPrimaryColor[50],
       ),
-      alignment: Alignment.topLeft,
+      alignment: Alignment.ce,
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Container(
             alignment: Alignment.centerLeft,
