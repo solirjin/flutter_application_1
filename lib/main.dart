@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -67,201 +66,172 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Palette.xdPrimaryColor[50],
+      body: Column(
+        children: [
+          DuyAnh(),
+          Hai(),
+          Toan(),
+        ],
+      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: _incrementCounter,
+      //   backgroundColor: Palette.xdPrimaryColor,
+      //   tooltip: 'Increment',
+      //   child: const Icon(Icons.add),
+      // ), // This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+}
+
+class DuyAnh extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('DuyAnh here'),
+      ],
+    );
+  }
+}
+
+class Hai extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('Hai here'),
+      ],
+    );
+  }
+}
+
+class Toan extends StatefulWidget {
+  @override
+  _ToanState createState() => _ToanState();
+}
+
+class _ToanState extends State<Toan> {
+  bool? _value = false;
   int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      backgroundColor: Palette.xdPrimaryColor[50],
-      // backgroundColor: Colors.red,
-
-      // appBar: AppBar(
-      //   // Here we take the value from the MyHomePage object that was created by
-      //   // the App.build method, and use it to set our appbar title.
-      //   title: Text(widget.title),
-      // ),
-
-      body: Container(
-        padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: Palette.xdPrimaryColor[50],
-        ),
-        alignment: Alignment.topLeft,
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              alignment: Alignment.centerLeft,
-              child: Text(
-                "Xin chào",
-                style: Theme.of(context).textTheme.headlineMedium,
-              ),
+    return Container(
+      padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: Palette.xdPrimaryColor[50],
+      ),
+      alignment: Alignment.topLeft,
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Container(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              "Xin chào",
+              style: Theme.of(context).textTheme.headlineMedium,
             ),
-            Container(
-                padding: const EdgeInsets.all(12),
-                alignment: Alignment.centerLeft,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8)),
-                child: Column(
-                  children: [
-                    Container(
-                        alignment: Alignment.centerLeft,
-                        child: Text(
-                          "Tiếp tục sử dụng",
-                          style: Theme.of(context).textTheme.labelMedium,
-                        )),
-                    Container(
-                      alignment: Alignment.centerLeft,
-                      child: Wrap(
-                        spacing: 4,
-                        children: [
-                          ElevatedButton.icon(
-                            onPressed: (_incrementCounter),
-                            icon: const Icon(Icons.add),
-                            label: const Text("Google"),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Palette.xdSecondaryColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          ElevatedButton.icon(
-                            onPressed: (_incrementCounter),
-                            icon: const Icon(Icons.add),
-                            label: const Text("Facebook"),
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Palette.xdSecondaryColor,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            '$_counter',
-                            style: Theme.of(context).textTheme.headlineMedium,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                )),
-            const SizedBox(height: 4),
-            Container(
+          ),
+          Container(
               padding: const EdgeInsets.all(12),
               alignment: Alignment.centerLeft,
               decoration: BoxDecoration(
                   color: Colors.white, borderRadius: BorderRadius.circular(8)),
               child: Column(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  const Flexible(
-                      child: TextField(
-                    // style: Theme.of(context).textTheme.headlineMedium,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Địa chỉ email',
-                      labelText: 'Nhập địa chỉ email',
-                    ),
-                  )),
-                  const SizedBox(height: 8),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: (_incrementCounter),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Palette.xdPrimaryColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                children: [
+                  Container(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        "Tiếp tục sử dụng",
+                        style: Theme.of(context).textTheme.labelMedium,
+                      )),
+                  Container(
+                    alignment: Alignment.centerLeft,
+                    child: Wrap(
+                      spacing: 4,
+                      children: [
+                        ElevatedButton.icon(
+                          onPressed: (_incrementCounter),
+                          icon: const Icon(Icons.add),
+                          label: const Text("Google"),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Palette.xdSecondaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
                         ),
-                      ),
-                      child: const Text(
-                        'Tiếp tục đăng nhập',
-                      ),
+                        ElevatedButton.icon(
+                          onPressed: (_incrementCounter),
+                          icon: const Icon(Icons.add),
+                          label: const Text("Facebook"),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Palette.xdSecondaryColor,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                          ),
+                        ),
+                        Text(
+                          '$_counter',
+                          style: Theme.of(context).textTheme.headlineMedium,
+                        ),
+                      ],
                     ),
                   ),
                 ],
-              ),
+              )),
+          const SizedBox(height: 4),
+          Container(
+            padding: const EdgeInsets.all(12),
+            alignment: Alignment.centerLeft,
+            decoration: BoxDecoration(
+                color: Colors.white, borderRadius: BorderRadius.circular(8)),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                const Flexible(
+                    child: TextField(
+                  // style: Theme.of(context).textTheme.headlineMedium,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    hintText: 'Địa chỉ email',
+                    labelText: 'Nhập địa chỉ email',
+                  ),
+                )),
+                const SizedBox(height: 8),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: (_incrementCounter),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Palette.xdPrimaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: const Text(
+                      'Tiếp tục đăng nhập',
+                    ),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-      // body: Center(
-      //   // Center is a layout widget. It takes a single child and positions it
-      //   // in the middle of the parent.
-      //   child: Column(
-      //     // Column is also a layout widget. It takes a list of children and
-      //     // arranges them vertically. By default, it sizes itself to fit its
-      //     // children horizontally, and tries to be as tall as its parent.
-      //     //
-      //     // Invoke "debug painting" (press "p" in the console, choose the
-      //     // "Toggle Debug Paint" action from the Flutter Inspector in Android
-      //     // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-      //     // to see the wireframe for each widget.
-      //     //
-      //     // Column has various properties to control how it sizes itself and
-      //     // how it positions its children. Here we use mainAxisAlignment to
-      //     // center the children vertically; the main axis here is the vertical
-      //     // axis because Columns are vertical (the cross axis would be
-      //     // horizontal).
-      //     mainAxisAlignment: MainAxisAlignment.center,
-      //     children: <Widget>[
-      //       Text(
-      //         "Xin chào",
-      //         style: Theme.of(context).textTheme.headlineMedium,
-      //       ),
-      //       const Text(
-      //         'You have clicked the button this many times:',
-      //         style: TextStyle(backgroundColor: Palette.xdPrimaryColor),
-      //       ),
-      //       Text(
-      //         '$_counter',
-      //         style: Theme.of(context).textTheme.headlineMedium,
-      //       ),
-      //       const Text('aa', style: TextStyle(color: Color(0xFF2F6858)))
-      //     ],
-      //   ),
-      // ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        backgroundColor: Palette.xdPrimaryColor,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
