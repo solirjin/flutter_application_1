@@ -9,6 +9,7 @@
 .history
 .svn/
 migrate_working_dir/
+/linux/
 
 # IntelliJ related
 *.iml
@@ -42,3 +43,5 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+android/gradle.properties
+linux/flutter/generated_plugin_registrant.cc
