@@ -75,9 +75,9 @@ class _MyHomePageState extends State<MyHomePage> {
       //   Hai(),
       //   Toan(),
       // ]),
-      body: Toan(),
+      // body: Toan(),
       // body: Hai(),
-      // body: DuyAnh(),
+      body: DuyAnh(),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   backgroundColor: Palette.xdPrimaryColor,
@@ -136,7 +136,7 @@ class _ToanState extends State<Toan> {
       decoration: BoxDecoration(
         color: Palette.xdPrimaryColor[50],
       ),
-      alignment: Alignment.ce,
+      alignment: Alignment.centerLeft,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
