@@ -40,8 +40,9 @@ class MyApp extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Palette.xdPrimaryColor,
-        accentColor: Palette.xdPrimaryColor[100],
+        //   accentColor: Palette.xdPrimaryColor[100],
       ),
+      title: 'Xì dách',
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -76,8 +77,8 @@ class _MyHomePageState extends State<MyHomePage> {
       //   Toan(),
       // ]),
       // body: Toan(),
-      // body: Hai(),
-      body: DuyAnh(),
+      body: const GameSession(),
+      // body: DuyAnh(),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
       //   backgroundColor: Palette.xdPrimaryColor,
@@ -88,153 +89,91 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class DuyAnh extends StatelessWidget {
+class GameSession extends StatelessWidget {
+  const GameSession({super.key});
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('DuyAnh heresssss'),
-        Text('DuyAnh heresssss'),
-        Text('DuyAnh heresssss'),
-        Text('DuyAnh heresssss'),
-      ],
-    );
-  }
-}
-
-class Hai extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('Hai here'),
-      ],
-    );
-  }
-}
-
-class Toan extends StatefulWidget {
-  @override
-  _ToanState createState() => _ToanState();
-}
-
-class _ToanState extends State<Toan> {
-  bool? _value = false;
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        color: Palette.xdPrimaryColor[50],
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            debugPrint('debug:');
+          },
+        ),
+        title: const Text(
+          'Lịch sử chơi',
+          textAlign: TextAlign.center,
+        ),
+        centerTitle: true,
       ),
-      alignment: Alignment.centerLeft,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Container(
-            alignment: Alignment.centerLeft,
-            child: Text(
-              "Xin chào",
-              style: Theme.of(context).textTheme.headlineMedium,
+      body: ListView.builder(
+        itemCount: 2, // replace 10 with the length of your list
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            margin: EdgeInsets.all(12.0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12.0),
+              side: BorderSide(
+                color: Colors.grey.shade300,
+                width: 0,
+              ),
             ),
-          ),
-          Container(
-              padding: const EdgeInsets.all(12),
-              alignment: Alignment.centerLeft,
-              decoration: BoxDecoration(
-                  color: Colors.white, borderRadius: BorderRadius.circular(8)),
-              child: Column(
-                children: [
-                  Container(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        "Tiếp tục sử dụng",
-                        style: Theme.of(context).textTheme.labelMedium,
-                      )),
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    child: Wrap(
-                      spacing: 4,
-                      children: [
-                        ElevatedButton.icon(
-                          onPressed: (_incrementCounter),
-                          icon: const Icon(Icons.add),
-                          label: const Text("Google"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Palette.xdSecondaryColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                        ),
-                        ElevatedButton.icon(
-                          onPressed: (_incrementCounter),
-                          icon: const Icon(Icons.add),
-                          label: const Text("Facebook"),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Palette.xdSecondaryColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                            ),
-                          ),
-                        ),
-                        Text(
-                          '$_counter',
-                          style: Theme.of(context).textTheme.headlineMedium,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              )),
-          const SizedBox(height: 4),
-          Container(
-            padding: const EdgeInsets.all(12),
-            alignment: Alignment.centerLeft,
-            decoration: BoxDecoration(
-                color: Colors.white, borderRadius: BorderRadius.circular(8)),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                const Flexible(
-                    child: TextField(
-                  // style: Theme.of(context).textTheme.headlineMedium,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'Địa chỉ email',
-                    labelText: 'Nhập địa chỉ email',
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 2,
+                    ),
                   ),
-                )),
-                const SizedBox(height: 8),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: (_incrementCounter),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Palette.xdPrimaryColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
+                  margin: EdgeInsets.zero,
+                  padding: EdgeInsets.zero,
+                  child: ListTile(
+                    title: Text('Xì dách 3 trong 1..'),
+                    trailing: ElevatedButton(
+                      onPressed: () {},
+                      child: Text('Button'),
                     ),
-                    child: const Text(
-                      'Tiếp tục đăng nhập',
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 2,
                     ),
+                  ),
+                  margin: EdgeInsets.all(0.0),
+                  padding: EdgeInsets.zero,
+                  child: ListTile(
+                    title: Text(
+                      'Chơi cùng Duy Anh, a Toàn, Huệ....',
+                    ),
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 2,
+                    ),
+                  ),
+                  margin: EdgeInsets.all(0.0),
+                  padding: EdgeInsets.zero,
+                  child: ListTile(
+                    leading: Icon(Icons.access_time),
+                    title: Text('Thứ tư, 27/12/22'),
+                    trailing: Text('Hôm nay'),
                   ),
                 ),
               ],
             ),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
