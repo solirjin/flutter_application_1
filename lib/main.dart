@@ -67,6 +67,20 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text('Home Page'),
+    Text('Search Page'),
+    Text('Profile Page'),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,6 +92,26 @@ class _MyHomePageState extends State<MyHomePage> {
       // ]),
       // body: Toan(),
       body: const GameSession(),
+      //body: Center(
+      //  child: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Trang chủ',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history_sharp),
+            label: 'Lịch sử',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.admin_panel_settings_sharp),
+            label: 'Cài đặt',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
       // body: DuyAnh(),
       // floatingActionButton: FloatingActionButton(
       //   onPressed: _incrementCounter,
@@ -96,7 +130,7 @@ class GameSession extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.navigate_before),
           onPressed: () {
             debugPrint('debug:');
           },
@@ -108,7 +142,7 @@ class GameSession extends StatelessWidget {
         centerTitle: true,
       ),
       body: ListView.builder(
-        itemCount: 2, // replace 10 with the length of your list
+        itemCount: 10, // replace 10 with the length of your list
         itemBuilder: (BuildContext context, int index) {
           return Card(
             margin: EdgeInsets.all(12.0),
@@ -134,9 +168,11 @@ class GameSession extends StatelessWidget {
                   padding: EdgeInsets.zero,
                   child: ListTile(
                     title: Text('Xì dách 3 trong 1..'),
-                    trailing: ElevatedButton(
-                      onPressed: () {},
-                      child: Text('Button'),
+                    trailing: IconButton(
+                      icon: Icon(Icons.navigate_next_rounded),
+                      onPressed: () {
+                        // Do something when the button is pressed
+                      },
                     ),
                   ),
                 ),
@@ -165,7 +201,7 @@ class GameSession extends StatelessWidget {
                   margin: EdgeInsets.all(0.0),
                   padding: EdgeInsets.zero,
                   child: ListTile(
-                    leading: Icon(Icons.access_time),
+                    leading: const Icon(Icons.access_time),
                     title: Text('Thứ tư, 27/12/22'),
                     trailing: Text('Hôm nay'),
                   ),
